@@ -48,7 +48,7 @@ function Card(props){
       <div>
         <p>
           <span>
-            {props.element.name  }
+            {props.element.name}
           </span>  
           <span>
             New!
