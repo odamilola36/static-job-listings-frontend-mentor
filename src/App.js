@@ -28,19 +28,20 @@ function App() {
   return (
     <>
       <Header />
+
       {
-        items.forEach(elem =>{
-          <Card element={elem}/>
-        })
-        
+        items.map(element => {
+            return <Card element={element}/>
+          })    
       }
-      
     </>
   )
 }
 
 
 function Card(props){
+
+  
   return(
   <>
   {
@@ -64,28 +65,20 @@ function Card(props){
           {props.element.lastSeen} &bull; {props.element.availability} &bull; {props.element.location}
         </p>
       </div>
-      <div className ="tags" >
+      <div className = "Tags">
         {
-          props.element.Languages.forEach(cc => {
-            <span>{cc}</span>
+          props.element.Languages.map(function(just, index){
+            return <span key = {index}> {just}</span>
           })
-        }                          
-      </div>
+        } 
+       </div>
     </div>
   } 
 </> 
   )
 }
 
-function Tags(){
-  return(
-    <>
-      <span>
-        {Children}
-      </span>
-    </>
-  )
-}
+
 
 function Header(){
   return(
