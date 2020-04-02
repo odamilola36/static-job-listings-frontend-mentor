@@ -1,37 +1,18 @@
-import React, { Children } from 'react';
-import bg_header_desktop from './images/bg_header_desktop.svg';
+import React from 'react';
+// import bg_header_desktop from './images/bg_header_desktop.svg';
 import items from './items';
-// import Card from './components/card'
 import './App.css';
-
-const element =  {
-  "id": 1,
-  "imgUrl": "../images/photosnap.svg",
-  "name":"Photosnap",
-  "New!": true,
-  "Featured": true,
-  "level_up": "Senior Frontend Developer",
-  "lastSeen": "1d ago",
-  "availability":"Full Time",
-  "location":"USA only",
-  "role": "frontend",
-  "level":"Senior",
-  "Languages": [
-      " HTML","CSS","JavaScript"
-  ],
-  "tools":[            
-  ]
-  };
 
 function App() {
   
   return (
     <>
       <Header />
-
+      <Search />
       {
-        items.map(element => {
-            return <Card element={element}/>
+        items.map((element, index) => {
+          console.log(index+"card");
+            return <Card element={element} key={index +"card"}/>
           })    
       }
     </>
@@ -40,34 +21,39 @@ function App() {
 
 
 function Card(props){
+  const details = props.element;
+  const toolan = [...details.Languages, ...details.tools].flat();
 
-  
   return(
   <>
   {
-    <div className ="card">
-      <div>
+    <div className ="card" >
+
+      <img className="icon" src={process.env.PUBLIC_URL +  details.imgUrl} alt={details.name + "-icon"} />
+
+      <div className="info">
         <p>
           <span>
-            {props.element.name}
+            {details.name}
           </span>  
-          <span>
-            New!
-          </span>  
-          <span>
-            Featured
-          </span>
+          {
+            details.New? <span className = "newFeatured">New</span>: ""
+          }
+          {
+            details.Featured? <span className = "newFeatured">Featured</span>: ""
+          }
         </p>
         <p>
-          {props.element.level_up}
+          {details.level_up}
         </p>
         <p>
-          {props.element.lastSeen} &bull; {props.element.availability} &bull; {props.element.location}
+          {details.lastSeen} &bull; {details.availability} &bull; {details.location}
         </p>
       </div>
       <div className = "Tags">
         {
-          props.element.Languages.map(function(just, index){
+          toolan.map(function(just, index){
+            console.log(index);
             return <span key = {index}> {just}</span>
           })
         } 
@@ -78,13 +64,33 @@ function Card(props){
   )
 }
 
-
-
 function Header(){
   return(
       <header>
-          <img src={bg_header_desktop} alt="backround imae"/>
+          <img src={process.env.PUBLIC_URL + "/images/bg_header_desktop.svg"} alt="backround imae"/>
       </header>
   );
+}
+
+class Search extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      searcTerm: "",
+    }
+
+    this.onChange = this.onChange.bind(this);
+  }
+  
+  onChange(event){
+    // console.log(event);
+    this.setState({searcTerm: event.target.value});
+  }
+  render(){
+    return(
+      <input onChange ={this.onChange} type="text" id="seaerch_jobs" />
+    )
+    // console.log(this.state.searcTerm);
+  }  
 }
 export default App;
