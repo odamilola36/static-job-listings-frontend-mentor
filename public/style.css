@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+      }
+      body header{
+        background: hsl(180, 29%, 50%);  
+        height: max-content;    
+      }
+      #wrapper{      
+        background: hsl(180, 52%, 96%);
+        border: 1px solid red;
+      }
+      .container{
+        width: 80%;
+        margin: auto;
+      }
+      .card{
+        margin-top: 1em;
+        width: 100%;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 10px 8px 15px hsl(180, 8%, 52%);
+        border-left: 5px solid hsl(180, 14%, 20%);
+        padding:1.5em;
+      }
+      .card img{
+        align-self: flex-start;
+        margin-top: 1em;
+      }
