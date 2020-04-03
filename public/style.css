@@ -1,29 +1,60 @@
 body{
     margin: 0;
-      }
-      body header{
+    width: 100vw;
+    font-size: 15px;
+}
+body header{
         background: hsl(180, 29%, 50%);  
         height: max-content;    
       }
-      #wrapper{      
+header img{
+        max-width: 100%;
+        height: auto;
+      }
+#wrapper{      
         background: hsl(180, 52%, 96%);
-        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
       }
-      .container{
+#container{
         width: 80%;
-        margin: auto;
+        margin: 70px auto;
       }
-      .card{
-        margin-top: 1em;
+.card{
+        margin-bottom: 1.8em;
+        background: white;
         width: 100%;
         border-radius: 5px;
         display: flex;
         flex-direction: row;
         box-shadow: 10px 8px 15px hsl(180, 8%, 52%);
         border-left: 5px solid hsl(180, 14%, 20%);
-        padding:1.5em;
+        padding:1.3em;
       }
-      .card img{
+.card img{
         align-self: flex-start;
-        margin-top: 1em;
-      }
+        max-width: 20%;
+        height: auto;
+        margin: 1em 1.4em;
+}
+
+.info-wrapper{
+      display: flex;
+      flex-direction: row;
+      max-width: 80%;
+}  
+    
+.info-name{
+      font-weight: 500;
+      margin-right: 1em;
+      color:hsl(180, 14%, 20%);
+}
+
+.new{
+  font-weight: 500;
+  margin-right: 1em;
+  background: hsl(180, 14%, 20%);
+  color: white;
+  border-radius: 25%;
+  padding: 0.5em;
+}

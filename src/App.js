@@ -8,13 +8,18 @@ function App() {
   return (
     <>
       <Header />
-      <Search />
-      {
-        items.map((element, index) => {
-          console.log(index+"card");
-            return <Card element={element} key={index +"card"}/>
-          })    
-      }
+     
+      <div id="wrapper">
+        {/* <Search /> */}
+        <div id="container">
+          { 
+            items.map((element, index) => {
+              console.log(index+"card");
+                return <Card element={element} key={index +"card"}/>
+              })    
+          }
+        </div>
+      </div>      
     </>
   )
 }
@@ -29,35 +34,38 @@ function Card(props){
   {
     <div className ="card" >
 
-      <img className="icon" src={process.env.PUBLIC_URL +  details.imgUrl} alt={details.name + "-icon"} />
+      <img src={process.env.PUBLIC_URL +  details.imgUrl} alt={details.name + "-icon"} />
 
-      <div className="info">
-        <p>
-          <span>
-            {details.name}
-          </span>  
+      <div className="info-wrapper">
+        <div className ="info">
+          <p className ="info-header">
+            <span className ="info-name">
+              {details.name}
+            </span>  
+            {
+              details.New? <span className = "new">New</span>: ""
+            }
+            {
+              details.Featured? <span className = "Featured">Featured</span>: ""
+            }
+          </p>
+          <p className ="info-level">
+            {details.level_up}
+          </p>
+          <p className ="info-rest">
+            {details.lastSeen} &bull; {details.availability} &bull; {details.location}
+          </p>
+        </div>    
+        <div className = "tags">
           {
-            details.New? <span className = "newFeatured">New</span>: ""
+            toolan.map(function(just, index){
+              console.log(index);
+              return <span key = {index} className="tag-item"> {just}</span>
+            })
           }
-          {
-            details.Featured? <span className = "newFeatured">Featured</span>: ""
-          }
-        </p>
-        <p>
-          {details.level_up}
-        </p>
-        <p>
-          {details.lastSeen} &bull; {details.availability} &bull; {details.location}
-        </p>
+        </div>
       </div>
-      <div className = "Tags">
-        {
-          toolan.map(function(just, index){
-            console.log(index);
-            return <span key = {index}> {just}</span>
-          })
-        } 
-       </div>
+        
     </div>
   } 
 </> 
