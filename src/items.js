@@ -162,7 +162,7 @@ const items =
         "name":"The Air Filter Company",
         "New": false,
         "Featured": false,
-        "level_up": "Front-end Dev",
+        "level_up": "Front-end Developer",
         "lastSeen": "1mo ago",
         "availability":"Part Time",
         "location":"Worldwide",
