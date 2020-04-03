@@ -21,7 +21,7 @@ header img{
         flex-direction: column;
       }
 #container{
-        width: 80vw;
+        width: 90vw;
         margin: 70px auto;
       }
 .card{
@@ -29,8 +29,8 @@ header img{
         background: white;
         width: 90%;
         border-radius: 5px;
-        height: 30vh;
         display: flex;
+        margin-left: 3%;
         flex-direction: row;
         box-shadow: 10px 8px 15px hsl(180, 32%, 85%);
         border-left: 5px solid hsl(180, 14%, 20%);
@@ -49,9 +49,9 @@ header img{
       max-width: 80%;
       justify-content: space-between;
 }  
-.info{
-  /* border: 1px solid saddlebrown;                 */
-}    
+/* .info{
+  border: 1px solid saddlebrown;                
+}     */
 .info-name{
       font-weight: 500;
       margin-right: 1em;
@@ -89,18 +89,18 @@ header img{
 
 .tags{
   align-self: center;
+  width: 80%;
   display: flex;
   flex-direction: row-reverse;
 }
 
 .tag-item{
-  align-self: flex-end;
   background: hsl(180, 52%, 96%);
   color: hsl(180, 29%, 50%);
   padding: 5px;
   border-radius: 5px;
   font-weight: 500;
-  margin: 5px;
+  margin: 8px;
   text-transform: capitalize;
 }
 
@@ -108,6 +108,10 @@ header img{
   and (min-width:200px )
   and (max-width: 450px)
   {
+    #container{
+      width: 80vw;
+      margin: 70px auto;
+    }
     .mobile {
       display: block;
       max-width: 100%;
@@ -118,6 +122,7 @@ header img{
     }
     .card{
       position: relative;
+      height: 30vh;
       display: flex;
       flex-direction: column;
       margin-bottom: 15%;
@@ -161,3 +166,4 @@ header img{
       padding: -5px;
     }
 } 
+
